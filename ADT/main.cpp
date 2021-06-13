@@ -1,7 +1,5 @@
+#include "Lampu8.h"
 #include<stdio.h>
-#include "Lampu8.hpp"
-
-
 
 Lampu8 A;
 Lampu8 B;
@@ -15,23 +13,21 @@ int LampuC=-1;
 int tes;
 
 int main(){
-    A=0;
-    B=0;
-    C=0;
-
+    SetSemua(&A,0);
+    SetSemua(&B,0);
+    SetSemua(&C,0);
     printf("Pilih lampu dari set A yang ingin dinyalakan(0-7) :");
     scanf("%d",&inputA);
-    A.NyalakanLampu(inputA);
+    NyalakanLampu(&A,inputA);
     printf("Pilih lampu dari set B yang ingin dinyalakan(0-7) :");
     scanf("%d",&inputB);
-    B.NyalakanLampu(inputB);
+    NyalakanLampu(&B,inputB);
     printf("Pilih lampu dari set C yang ingin dinyalakan(0-7) :");
     scanf("%d",&inputC);
-    C.NyalakanLampu(inputC);
-
+    NyalakanLampu(&C,inputC);
     tes=0;
     while (LampuA==-1){
-        if(A[tes]){
+        if(CekLampu(A,tes)){
             LampuA=tes;
         }
         else{
@@ -40,7 +36,7 @@ int main(){
     }
     tes=0;
     while (LampuB==-1){
-        if(B[tes]){
+        if(CekLampu(B,tes)){
             LampuB=tes;
         }
         else{
@@ -49,7 +45,7 @@ int main(){
     }
     tes=0;
     while (LampuC==-1){
-        if(C[tes]){
+        if(CekLampu(C,tes)){
             LampuC=tes;
         }
         else{
@@ -59,5 +55,4 @@ int main(){
     printf("Lampu dari set A yang menyala adalah %d\n",LampuA);
     printf("Lampu dari set B yang menyala adalah %d\n",LampuB);
     printf("Lampu dari set C yang menyala adalah %d\n",LampuC);
-
 }

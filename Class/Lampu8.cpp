@@ -6,14 +6,6 @@ Lampu8::Lampu8()
 {
     this->dataLampu = char(0); 
 }
-Lampu8 Lampu8::operator= (bool inp){
-    if (inp){
-        this->dataLampu=char(255);
-    }
-    else{
-        this->dataLampu=char(0);
-    }
-}
 
 void Lampu8::NyalakanLampu(int noLampu)
 {
@@ -35,6 +27,16 @@ void Lampu8::MatikanLampu(int noLampu){
     x=x|char(n);
     this->dataLampu=~x;
 }
+
+Lampu8 Lampu8::operator= (bool inp){
+    if (inp){
+        this->dataLampu=char(255);
+    }
+    else{
+        this->dataLampu=char(0);
+    }
+}
+
 bool Lampu8::operator[](int noLampu)
 {
     int n=1;
